@@ -1,54 +1,46 @@
 <template>
   <div class="loginContainer">
 
-    <div class="loginTop">
-      <div class="poet">
-        <div class="title">
-          <p>雕刀</p>
-          <p>席慕容</p>
-        </div>
+    <!--  登录注册 弹出框  -->
+    <login-pop-up
+      ref="loginPop"
+      @CancelPopUp="CancelPopUp"
+    ></login-pop-up>
+    <register-pop-up
+      ref="registerPop"
+      @CancelPopUp="CancelPopUp"
+    ></register-pop-up>
 
-        <div class="poem">
-          <p>也不过只是为了想让这个世界知道，</p>
-          <p>反复与坚持之后，</p>
-          <p>柔水终成雕刀。</p>
-        </div>
-      </div>
-    </div>
+    <login-top></login-top>
 
-    <div class="BtnWrapper">
-      <my-button
-          bgc="#FFE2AE"
-          fc="grey"
-          fs="24px"
-          width="100%"
-          @click.native="LoginBtnHandler">登录</my-button>
-      <my-button
-          bgc="#FFE2AE"
-          fc="grey"
-          fs="24px"
-          width="100%"
-          @click.native="RegisterBtnHandler">注册</my-button>
-    </div>
 
-    <div class="loginFoot">
-      <div class="footImg">
-        <img src="~assets/imgs/login/login1.png" alt="">
-      </div>
-    </div>
+    <login-main
+      @LoginPopUp="LoginPopUp"
+      @RegisterPopUp="RegisterPopUp"
+    ></login-main>
+
+
+    <login-foot></login-foot>
+
 
   </div>
 </template>
 
 <script>
-// import IconFont from "@/components/iconfont/IconFont";
-import MyButton from "@/components/common/button/MyButton";
+import LoginTop from "@/views/login/ChildComp/LoginTop";
+import LoginMain from "@/views/login/ChildComp/LoginMain";
+import LoginFoot from "@/views/login/ChildComp/LoginFoot";
+import LoginPopUp from "@/views/login/ChildComp/LoginPopUp";
+import RegisterPopUp from "@/views/login/ChildComp/RegisterPopUp";
 export default {
   name: "Login",
 
   components:{
-    // IconFont
-    MyButton
+    LoginTop,
+    LoginMain,
+    LoginFoot,
+    LoginPopUp,
+    RegisterPopUp
   },
 
   created() {
@@ -59,14 +51,22 @@ export default {
   },
 
   methods:{
-    // 登录处理
-    LoginBtnHandler(){
-    },
-    // 注册处理
-    RegisterBtnHandler(){
-    }
 
+    // add active class to the popup
+    LoginPopUp(){
+      this.$refs.loginPop.$el.classList.add("pop-up-active")
+    },
+    //
+    RegisterPopUp(){
+      this.$refs.registerPop.$el.classList.add("pop-up-active")
+
+    },
+    CancelPopUp(){
+      this.$refs.loginPop.$el.classList.remove("pop-up-active")
+      this.$refs.registerPop.$el.classList.remove("pop-up-active")
+    }
   }
+
 
 }
 </script>
@@ -83,53 +83,10 @@ export default {
   justify-content: space-between;
   align-items: center;
 
-  .loginTop{
-    width: 100%;
-    height: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
 
-    .title{
-      p:first-child{
-        color: steelblue;
-        font-weight: bold;
-        font-size: 20px;
-        margin-bottom: 0;
-      }
-      p:last-child{
-        color: grey;
-        margin-top: 5px;
-      }
-    }
-
-    p{
-      text-align: center;
-    }
-
-  }
-
-
-  .BtnWrapper{
-    width: 80%;
-    height: 20%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-
-  .loginFoot{
-    width: 100%;
-    height: 20%;
-    .footImg{
-      img{
-        width: 100%;
-      }
-    }
+  .pop-up-active{
+    top:50%;
+    transform: translateY(-50%);
   }
 
 }
