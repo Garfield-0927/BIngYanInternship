@@ -5,23 +5,38 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path:'/',
-    redirect:'/login'
+    path: '/',
+    redirect: '/login'
   },
   {
-    path:'/login',
-    component: ()=>import('@/views/login/Login')
+    path: '/login',
+    component: () => import('@/views/login/Login')
   },
   {
-    path:'/home',
-    component: ()=>import('@/views/home/Home')
+    path: '/home',
+    component: () => import('@/views/home/Home'),
+    children:[
+      {
+        path: "today",
+        component: () => import('@/views/home/ChildComp/HomeToday')
+      },
+      {
+        path: "habit",
+        component: () => import('@/views/home/ChildComp/HomeHabit')
+      },
+      {
+        path: "more",
+        component: () => import('@/views/home/ChildComp/HomeMore')
+      },
+      ]
+
   },
 
 ]
 
 const router = new VueRouter({
   routes,
-  mode:'history'
+  mode: 'history'
 })
 
 export default router

@@ -55,7 +55,7 @@ export default {
     LoginHandler(){
       // TODO
       // need api request
-      this.$router.push("home")
+      this.$router.push("home/today")
     }
 
 

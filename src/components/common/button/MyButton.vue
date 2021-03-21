@@ -12,23 +12,27 @@ export default {
   props:{
     bgc:{
       type: String,
-      default: "#409EFF"
+      default(){
+        return "#409EFF"
+      }
     },
     fc:{
       type: String,
-      default: "#000000"
+      default(){
+        return "#000000"
+      }
     },
     fs:{
       type: String,
-      default: "16px"
+      default: ()=> "16px"
     },
     width:{
       type: String,
-      default: "100px"
+      default: ()=> "100px"
     },
     height:{
       type: String,
-      default: "50px"
+      default: ()=> "50px"
     },
   },
 
