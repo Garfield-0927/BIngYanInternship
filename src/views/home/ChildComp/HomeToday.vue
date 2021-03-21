@@ -19,7 +19,7 @@
       @changeDate="changeDate"
     />
 
-
+    <today-main></today-main>
   </div>
 </template>
 
@@ -27,12 +27,14 @@
 import TopBar from "@/components/common/topbar/TopBar";
 import IconFont from "@/components/common/iconfont/IconFont";
 import TodaySlideDown from "@/views/home/ChildComp/TodayComp/TodaySlideDown";
+import TodayMain from "@/views/home/ChildComp/TodayComp/TodayMain";
 export default {
   name: "HomeToday",
   components:{
     TopBar,
     IconFont,
-    TodaySlideDown
+    TodaySlideDown,
+    TodayMain
 
   },
 
