@@ -3,7 +3,6 @@
     <top-bar width="inherit">
       <div slot="left">
         <icon-font name="#icon-gongneng1" fs="30px"></icon-font>
-
       </div>
       <div slot="center" class="centerItem">
         <div>更多</div>

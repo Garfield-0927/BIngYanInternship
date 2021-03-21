@@ -1,7 +1,7 @@
 <template>
   <div class="habit-container">
     <top-bar width="inherit">
-      <div slot="left">
+      <div slot="left" class="leftItem">
         <icon-font name="#icon-tiaoshi" fs="24px"></icon-font>
       </div>
       <div slot="center" class="centerItem">
@@ -34,6 +34,12 @@ export default {
   width: 100vw;
   padding: 0 1em;
   box-sizing: border-box;
+
+  .leftItem{
+    border: 2px solid #000000;
+    border-radius: 4px;
+  }
+
 
   .centerItem {
     width: 70%;

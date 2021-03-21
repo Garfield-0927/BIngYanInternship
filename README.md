@@ -17,3 +17,12 @@
 ![](./READMEIMGS/Mar 20th 2.png)
 
 ![](./READMEIMGS/Mar 20th 3.png)
+
+
+
+
+
+### # 3.21 总结
+
+- 写完了bottombar以及router切换逻辑
+- 写完了三个页面的topbar
