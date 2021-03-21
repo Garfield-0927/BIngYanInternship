@@ -1,18 +1,24 @@
 <template>
   <div class="today-container">
-    <top-bar width="inherit">
-      <div slot="left">
-        <icon-font name="#icon-CSS" fs="30px"></icon-font>
 
+    <top-bar>
+      <div slot="left" class="leftItem">
+        <icon-font name="#icon-CSS" fs="30px"></icon-font>
       </div>
-      <div slot="center" class="centerItem">
-        <div>TODAY</div>
-        <div> ^ </div>
+      <div slot="center" class="centerItem" @click="showSlideDown">
+        <div ref="date">TODAY</div>
+        <div ref="arrow" class="arrow"> ^ </div>
       </div>
       <div slot="right" class="rightItem">
         +
       </div>
     </top-bar>
+
+    <today-slide-down
+      ref="slideDown"
+      @changeDate="changeDate"
+    />
+
 
   </div>
 </template>
@@ -20,11 +26,31 @@
 <script>
 import TopBar from "@/components/common/topbar/TopBar";
 import IconFont from "@/components/common/iconfont/IconFont";
+import TodaySlideDown from "@/views/home/ChildComp/TodayComp/TodaySlideDown";
 export default {
   name: "HomeToday",
   components:{
     TopBar,
-    IconFont
+    IconFont,
+    TodaySlideDown
+
+  },
+
+
+  methods:{
+
+    // slidedown出现
+    showSlideDown(){
+      this.$refs.arrow.classList.toggle('active');
+      this.$refs.slideDown.$el.classList.toggle('active');
+    },
+
+    // change date
+    changeDate(now){
+      this.$refs.date.innerHTML = now;
+      this.$refs.arrow.classList.remove('active');
+      this.$refs.slideDown.$el.classList.remove('active');
+    }
   }
 }
 </script>
@@ -37,6 +63,14 @@ export default {
   padding: 0 1em;
   box-sizing: border-box;
 
+  .leftItem{
+    height: 49px;
+    width: 49px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .centerItem{
     width: 70%;
     height: 49px;
@@ -48,26 +82,31 @@ export default {
 
     div:first-child{
       font-size: 18px;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
       height: 49px;
       line-height: 49px;
     }
-    div:last-child{
-      color: grey;
+    .arrow{
       height: 49px;
-      width: 30px;
+      width: 49px;
+      font-size: 18px;
       text-align: center;
       line-height: 49px;
-      transform: rotate(180deg) translateX(-50px) translateY(2px);
+      position: absolute;
+      right: 50px;
+      transform: rotate(180deg) translateY(4px);
+      transition: all .8s;
+    }
+    .active{
+      transform: rotate(0deg) translateY(2px);
     }
   }
 
   .rightItem{
     font-size: 28px;
     height: 49px;
+    width: 49px;
     line-height: 49px;
+    text-align: center;
   }
 }
 </style>
