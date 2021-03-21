@@ -12,11 +12,11 @@
 
 - 大概张这样
 
-![](./READMEIMGS/Mar 20th 1.png)
+![](/READMEIMGS/Mar 20th 1.png)
 
-![](./READMEIMGS/Mar 20th 2.png)
+![](/READMEIMGS/Mar 20th 2.png)
 
-![](./READMEIMGS/Mar 20th 3.png)
+![](/READMEIMGS/Mar 20th 3.png)
 
 
 
@@ -26,3 +26,5 @@
 
 - 写完了bottombar以及router切换逻辑
 - 写完了三个页面的topbar
+- 写完了today的slidedown
+- today的habit展示写了一半
