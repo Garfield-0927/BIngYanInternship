@@ -20,19 +20,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: false
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: true
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: true
             },
           ],
         },
@@ -41,19 +45,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: true
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: false
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: false
             },
           ],
         },
@@ -62,19 +70,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: false
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: false
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: false
             },
           ],
         },
@@ -83,19 +95,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: false
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: false
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: false
             },
           ],
         },
@@ -104,19 +120,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: false
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: false
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: false
             },
           ],
         },
@@ -125,19 +145,23 @@ export default {
           item: [
             {
               iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
+              taskDesc: "洗漱整理",
+              completed: false
             },
             {
               iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
+              taskDesc: "记得早餐",
+              completed: false
             },
             {
               iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
+              taskDesc: "英语听力",
+              completed: false
             },
             {
               iconName: "#icon-signal",
-              taskDesc: "模电数电"
+              taskDesc: "模电数电",
+              completed: false
             },
           ],
         },
@@ -148,6 +172,7 @@ export default {
 </script>
 
 <style scoped lang="less">
+
 .main-container{
   padding-top: 49px;
   height: calc(100vh - 10vh - 49px);
@@ -155,4 +180,9 @@ export default {
 
 
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+}
+
 </style>

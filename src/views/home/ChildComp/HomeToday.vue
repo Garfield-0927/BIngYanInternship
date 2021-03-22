@@ -9,7 +9,7 @@
         <div ref="date">TODAY</div>
         <div ref="arrow" class="arrow"> ^ </div>
       </div>
-      <div slot="right" class="rightItem">
+      <div slot="right" class="rightItem" @click="concealCompleted">
         +
       </div>
     </top-bar>
@@ -17,9 +17,11 @@
     <today-slide-down
       ref="slideDown"
       @changeDate="changeDate"
+      @closeSlideDown="closeSlideDown"
     />
 
-    <today-main></today-main>
+    <today-main/>
+
   </div>
 </template>
 
@@ -35,24 +37,40 @@ export default {
     IconFont,
     TodaySlideDown,
     TodayMain
-
   },
 
 
   methods:{
 
+
+    /* About Slide Down Methods */
+    // slideDownController
+    controlSlideDown(){
+      this.$refs.arrow.classList.toggle('active');
+      this.$refs.slideDown.$el.classList.toggle("outter-active")
+      this.$refs.slideDown.$el.querySelector("div").classList.toggle('active');
+    },
     // slidedown出现
     showSlideDown(){
-      this.$refs.arrow.classList.toggle('active');
-      this.$refs.slideDown.$el.classList.toggle('active');
+      this.controlSlideDown();
     },
-
     // change date
     changeDate(now){
       this.$refs.date.innerHTML = now;
-      this.$refs.arrow.classList.remove('active');
-      this.$refs.slideDown.$el.classList.remove('active');
+
+    },
+    // close slidedown
+    closeSlideDown(){
+      this.controlSlideDown();
+    },
+
+
+
+    /* About concealing finished tasks */
+    concealCompleted(){
+
     }
+
   }
 }
 </script>

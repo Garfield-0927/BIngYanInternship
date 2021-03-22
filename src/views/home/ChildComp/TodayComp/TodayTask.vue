@@ -1,6 +1,6 @@
 <template>
   <div class="task-container">
-    <div v-for="(item, index) in tasks" :key="index">
+    <div v-for="(item, index) in tasks" :key="index" class="task-wrapper">
       <div class="time" @click="unfoldHandler(index)">
         <div class="arrow" ref="arrow">
           <icon-font name="#icon-arrow" fs="24px"></icon-font>
@@ -59,6 +59,9 @@ export default {
 <style scoped lang="less">
 .task-container {
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 
   .time{
     height: 30px;
@@ -87,15 +90,19 @@ export default {
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
-    transition: all 1s;
-
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    transition: all 1s ease-in-out;
+    max-height: 500px;
+    opacity: 1;
     .task{
-      float: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       width: 33%;
+      opacity: inherit;
       .task-icon{
         width: 60px;
         height: 60px;
@@ -113,23 +120,19 @@ export default {
 
       .task-desc{
         margin: 10px auto;
+        opacity: inherit;
+        font-weight: bolder;
       }
     }
 
   }
 
-  // 清除浮动坍塌
-  .clearfix::after{
-    content: "";
-    clear:both;
-    display: block;
-
-  }
-
   .task-item-deactive{
-    height: 0;
     overflow: hidden;
+    opacity: 0;
+    max-height: 0;
   }
+
 
 }
 </style>
