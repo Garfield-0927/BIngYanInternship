@@ -1,14 +1,14 @@
 <template>
   <div class="task-container">
     <div v-for="(item, index) in tasks" :key="index">
-      <div class="time" @click="unfoldHandler">
+      <div class="time" @click="unfoldHandler(index)">
         <div class="arrow" ref="arrow">
           <icon-font name="#icon-arrow" fs="24px"></icon-font>
         </div>
         <div class="text">{{ item.time }}</div>
       </div>
 
-      <div class="task-item-wrapper" ref="taskItemWrapper">
+      <div class="task-item-wrapper clearfix" ref="taskItemWrapper">
         <div class="task" v-for="(task,index2) in item.item" :key="index2">
           <div class="task-icon">
             <icon-font :name="task.iconName" fs="48px"></icon-font>
@@ -30,41 +30,26 @@ export default {
     IconFont
   },
 
+  props:{
+    tasks:{
+      type: Array,
+      required: true
+    }
+  },
+
   data() {
     return {
-      tasks: [
-        {
-          time: "起床",
-          item: [
-            {
-              iconName: "#icon-Washingmachine",
-              taskDesc: "洗漱整理"
-            },
-            {
-              iconName: "#icon-chizaocan",
-              taskDesc: "记得早餐"
-            },
-            {
-              iconName: "#icon-yingyu",
-              taskDesc: "英语听力"
-            },
-            {
-              iconName: "#icon-signal",
-              taskDesc: "模电数电"
-            },
-          ],
 
-        },
-      ]
     }
   },
 
 
   methods:{
 
-    // 折叠处理
-    unfoldHandler(){
-      this.$refs.arrow[0].classList.toggle('deactive')
+    // 折叠处理   index为下标索引
+    unfoldHandler(index){
+      this.$refs.arrow[index].classList.toggle('deactive')
+      this.$refs.taskItemWrapper[index].classList.toggle('task-item-deactive')
     }
   }
 
@@ -74,11 +59,11 @@ export default {
 <style scoped lang="less">
 .task-container {
   width: 100%;
-  
+
   .time{
     height: 30px;
     width: 80px;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #F8F8F8;
     color: #565656;
     line-height: 30px;
@@ -99,19 +84,18 @@ export default {
   }
 
   .task-item-wrapper{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
     width: 100%;
     margin-top: 20px;
+    margin-bottom: 20px;
+    transition: all 1s;
 
     .task{
+      float: left;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      width: 30%;
+      width: 33%;
       .task-icon{
         width: 60px;
         height: 60px;
@@ -133,5 +117,19 @@ export default {
     }
 
   }
+
+  // 清除浮动坍塌
+  .clearfix::after{
+    content: "";
+    clear:both;
+    display: block;
+
+  }
+
+  .task-item-deactive{
+    height: 0;
+    overflow: hidden;
+  }
+
 }
 </style>

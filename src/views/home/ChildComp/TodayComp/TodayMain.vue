@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <today-task></today-task>
+    <today-task :tasks="tasks"></today-task>
   </div>
 </template>
 
@@ -10,6 +10,139 @@ export default {
   name: "TodayMain",
   components:{
     TodayTask
+  },
+
+  data(){
+    return{
+      tasks: [
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+        {
+          time: "起床",
+          item: [
+            {
+              iconName: "#icon-Washingmachine",
+              taskDesc: "洗漱整理"
+            },
+            {
+              iconName: "#icon-chizaocan",
+              taskDesc: "记得早餐"
+            },
+            {
+              iconName: "#icon-yingyu",
+              taskDesc: "英语听力"
+            },
+            {
+              iconName: "#icon-signal",
+              taskDesc: "模电数电"
+            },
+          ],
+        },
+      ]
+    }
   }
 }
 </script>

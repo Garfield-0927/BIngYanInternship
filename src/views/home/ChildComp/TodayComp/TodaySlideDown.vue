@@ -33,6 +33,7 @@ export default {
   right: 0;left: 0;
   height: 0;
   background-color: #fff;
+  z-index: 999;
   overflow: hidden;
   transition: all .8s;
   div{
