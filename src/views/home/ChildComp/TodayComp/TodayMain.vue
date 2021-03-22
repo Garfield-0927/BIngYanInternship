@@ -175,7 +175,7 @@ export default {
 
 .main-container{
   padding-top: 49px;
-  height: calc(100vh - 10vh - 49px);
+  height: calc(100vh - 10vh - 36px);
   overflow: scroll;
 
 

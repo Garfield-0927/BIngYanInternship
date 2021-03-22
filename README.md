@@ -28,3 +28,15 @@
 - 写完了三个页面的topbar
 - 写完了today的slidedown
 - today的habit展示写了一半
+
+
+
+
+
+### # 3.22 总结
+
+- 基本写完了today页面，遇到了点关于transition的小问题，在导师的帮助下解决了
+
+  在元素不指定宽高的情况下怎么使用transition过渡？答：用max-height。
+
+- 下午晚上基本在看面经。
