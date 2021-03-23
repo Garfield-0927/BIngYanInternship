@@ -22,6 +22,8 @@
 
     <today-main/>
 
+    <today-clock-in/>
+
   </div>
 </template>
 
@@ -30,13 +32,15 @@ import TopBar from "@/components/common/topbar/TopBar";
 import IconFont from "@/components/common/iconfont/IconFont";
 import TodaySlideDown from "@/views/home/ChildComp/TodayComp/TodaySlideDown";
 import TodayMain from "@/views/home/ChildComp/TodayComp/TodayMain";
+import TodayClockIn from "@/views/home/ChildComp/TodayComp/TodayClockIn";
 export default {
   name: "HomeToday",
   components:{
     TopBar,
     IconFont,
     TodaySlideDown,
-    TodayMain
+    TodayMain,
+    TodayClockIn
   },
 
 

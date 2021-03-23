@@ -34,6 +34,10 @@ export default {
       type: String,
       default: ()=> "50px"
     },
+    borderRadius:{
+      type: String,
+      default: () => "4px"
+    }
   },
 
   data(){
@@ -44,7 +48,7 @@ export default {
         fontSize:this.fs,
         width:this.width,
         height:this.height,
-        borderRadius:'4px',
+        borderRadius:this.borderRadius,
       }
     }
   }

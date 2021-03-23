@@ -50,7 +50,7 @@ export default {
           ],
         },
         {
-          time: "起床",
+          time: "晨间",
           item: [
             {
               iconName: "#icon-Washingmachine",
@@ -83,7 +83,7 @@ export default {
           ],
         },
         {
-          time: "起床",
+          time: "中午",
           item: [
             {
               iconName: "#icon-Washingmachine",
@@ -116,7 +116,7 @@ export default {
           ],
         },
         {
-          time: "起床",
+          time: "午间",
           item: [
             {
               iconName: "#icon-Washingmachine",
@@ -149,7 +149,7 @@ export default {
           ],
         },
         {
-          time: "起床",
+          time: "晚间",
           item: [
             {
               iconName: "#icon-Washingmachine",
@@ -182,7 +182,7 @@ export default {
           ],
         },
         {
-          time: "起床",
+          time: "睡前",
           item: [
             {
               iconName: "#icon-Washingmachine",
@@ -216,7 +216,25 @@ export default {
         },
       ]
     }
+  },
+
+
+  mounted() {
+
+
+    // 处理打卡成功事件
+    this.$bus.$on("ClockInSuccess", (task, time)=>{
+      let timeIndex = this.tasks.findIndex(item => item.time === time);
+      let taskIndex = this.tasks[timeIndex].item.findIndex(item => item.taskDesc === task.taskDesc);
+      this.tasks[timeIndex].item[taskIndex].completed = true;
+    })
+  },
+
+
+  methods:{
+
   }
+
 }
 </script>
 
@@ -226,8 +244,6 @@ export default {
   padding-top: 49px;
   height: calc(100vh - 10vh - 36px);
   overflow: scroll;
-
-
 }
 
 ::-webkit-scrollbar {

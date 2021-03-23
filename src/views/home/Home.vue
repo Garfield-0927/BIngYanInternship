@@ -1,7 +1,9 @@
 <template>
   <div class="Home-Container">
 
-    <router-view></router-view>
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
     <home-bottom-bar></home-bottom-bar>
   </div>
 </template>

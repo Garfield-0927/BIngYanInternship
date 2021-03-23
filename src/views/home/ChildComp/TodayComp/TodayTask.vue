@@ -8,8 +8,14 @@
         <div class="text">{{ item.time }}</div>
       </div>
 
-      <div class="task-item-wrapper" ref="taskItemWrapper">
-        <div class="task" v-for="(task,index2) in item.item" :key="index2" v-show="showCompleted===true?true:!task.completed">
+      <div class="task-item-wrapper" ref="taskItemWrapper" >
+        <div
+          class="task"
+          v-for="(task,index2) in item.item"
+          :key="index2"
+          v-show="showCompleted===true?true:!task.completed"
+          @click="clockInHandler(task, item.time)"
+        >
           <div class="task-icon" :style="{backgroundColor: task.completed ? task.completedBgc: '#ffffff' }">
             <icon-font :name="task.iconName" fs="48px"></icon-font>
           </div>
@@ -53,8 +59,6 @@ export default {
     })
 
 
-    // 任务完成的背景色处理
-    console.log(this.$refs.taskIcon)
   },
 
 
@@ -64,6 +68,12 @@ export default {
     unfoldHandler(index){
       this.$refs.arrow[index].classList.toggle('deactive')
       this.$refs.taskItemWrapper[index].classList.toggle('task-item-deactive')
+    },
+
+
+    // 打卡处理
+    clockInHandler(task, time){
+      this.$bus.$emit("clockIn", task, time)
     }
   }
 
