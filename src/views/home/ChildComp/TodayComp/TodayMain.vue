@@ -224,15 +224,32 @@ export default {
 
     // 处理打卡成功事件
     this.$bus.$on("ClockInSuccess", (task, time)=>{
-      let timeIndex = this.tasks.findIndex(item => item.time === time);
-      let taskIndex = this.tasks[timeIndex].item.findIndex(item => item.taskDesc === task.taskDesc);
-      this.tasks[timeIndex].item[taskIndex].completed = true;
+      let targetTask = this.findTask(task, time);
+      if (!targetTask.completed){
+        targetTask.completed = true;
+        targetTask.daysInARow++;
+      }
+    })
+
+    // 处理取消打卡的事件
+    this.$bus.$on("CancelClockIn", (task, time)=>{
+      let targetTask = this.findTask(task, time);
+      targetTask.completed = false;
+      targetTask.daysInARow--;
+
     })
   },
 
 
   methods:{
 
+
+    // find specific task according to time and taskDesc
+    findTask(task, time){
+      let timeIndex = this.tasks.findIndex(item => item.time === time);
+      let taskIndex = this.tasks[timeIndex].item.findIndex(item => item.taskDesc === task.taskDesc);
+      return this.tasks[timeIndex].item[taskIndex]
+    }
   }
 
 }

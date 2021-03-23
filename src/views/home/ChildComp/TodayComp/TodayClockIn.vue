@@ -108,6 +108,11 @@ export default {
 
     // 关闭打卡页面
     closeClockIn(){
+      // 如果是已经打卡成功的任务处理
+      if (this.task.completed){
+        this.$bus.$emit("CancelClockIn", this.task, this.time)
+      }
+
       this.$refs.clockInContainer.classList.remove("active");
     }
   }
