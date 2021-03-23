@@ -154,6 +154,7 @@ export default {
 
       .days{
         margin-bottom: 20px;
+        color: #c5c8ce;
       }
     }
 

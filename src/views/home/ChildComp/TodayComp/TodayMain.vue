@@ -43,7 +43,7 @@ export default {
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true,
+              completed: false,
               completedBgc: "#99CCFF",
               daysInARow: 3,
             },
@@ -62,7 +62,7 @@ export default {
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: true,
+              completed: false,
               completedBgc: "#FFCC33",
               daysInARow: 2,
             },
@@ -76,7 +76,7 @@ export default {
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true,
+              completed: false,
               completedBgc: "#99CCFF",
               daysInARow: 3,
             },
@@ -95,7 +95,7 @@ export default {
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: true,
+              completed: false,
               completedBgc: "#FFCC33",
               daysInARow: 2,
             },
@@ -109,7 +109,7 @@ export default {
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true,
+              completed: false,
               completedBgc: "#99CCFF",
               daysInARow: 3,
             },
@@ -142,7 +142,7 @@ export default {
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true,
+              completed: false,
               completedBgc: "#99CCFF",
               daysInARow: 3,
             },
@@ -154,7 +154,7 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: true,
+              completed: false,
               completedBgc: "#CCFF99",
               daysInARow: 1,
             },
@@ -175,7 +175,7 @@ export default {
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true,
+              completed: false,
               completedBgc: "#99CCFF",
               daysInARow: 3,
             },

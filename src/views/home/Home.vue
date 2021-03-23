@@ -1,7 +1,7 @@
 <template>
   <div class="Home-Container">
 
-    <keep-alive>
+    <keep-alive exclude="TodayClockIn">
       <router-view></router-view>
     </keep-alive>
     <home-bottom-bar></home-bottom-bar>
