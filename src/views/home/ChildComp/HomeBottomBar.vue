@@ -74,8 +74,13 @@ export default {
     // 观察currentIndex变化
     currentIndex(newV, oldV){
       this.barItems[newV].iconName = this.barItems[newV].iconName.replace("-deactive","")
-      this.barItems[oldV].iconName+="-deactive"
-      this.$router.push(this.barItems[newV].url);
+      this.barItems[oldV].iconName+="-deactive";
+      try {
+        this.$router.push(this.barItems[newV].url);
+      }catch (e){
+        console.log(e)
+      }
+
     }
   }
 
