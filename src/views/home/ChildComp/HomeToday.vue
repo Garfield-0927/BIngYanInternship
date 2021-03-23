@@ -68,8 +68,9 @@ export default {
 
     /* About concealing finished tasks */
     concealCompleted(){
-
+      this.$bus.$emit("cancelCompleted")
     }
+
 
   }
 }

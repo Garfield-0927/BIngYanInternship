@@ -8,12 +8,13 @@
         <div class="text">{{ item.time }}</div>
       </div>
 
-      <div class="task-item-wrapper clearfix" ref="taskItemWrapper">
-        <div class="task" v-for="(task,index2) in item.item" :key="index2">
-          <div class="task-icon">
+      <div class="task-item-wrapper" ref="taskItemWrapper">
+        <div class="task" v-for="(task,index2) in item.item" :key="index2" v-show="showCompleted===true?true:!task.completed">
+          <div class="task-icon" :style="{backgroundColor: task.completed ? task.completedBgc: '#ffffff' }">
             <icon-font :name="task.iconName" fs="48px"></icon-font>
           </div>
           <div class="task-desc">{{ task.taskDesc }}</div>
+          <div v-if="task.daysInARow" class="days">连续{{task.daysInARow}}天</div>
         </div>
       </div>
 
@@ -39,8 +40,21 @@ export default {
 
   data() {
     return {
-
+      showCompleted: true
     }
+  },
+
+
+  mounted() {
+
+    // 监听隐藏已完成事件的事件
+    this.$bus.$on("cancelCompleted",()=>{
+      this.showCompleted = this.showCompleted===true ? false : true;
+    })
+
+
+    // 任务完成的背景色处理
+    console.log(this.$refs.taskIcon)
   },
 
 
@@ -92,7 +106,7 @@ export default {
     margin-bottom: 20px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     transition: all 1s ease-in-out;
     max-height: 500px;
     opacity: 1;
@@ -118,12 +132,22 @@ export default {
         }
       }
 
+      .completed{
+        background-color: #ffcc99;
+      }
+
       .task-desc{
         margin: 10px auto;
         opacity: inherit;
         font-weight: bolder;
       }
+
+      .days{
+        margin-bottom: 20px;
+      }
     }
+
+
 
   }
 

@@ -6,14 +6,15 @@
 
 <script>
 import TodayTask from "@/views/home/ChildComp/TodayComp/TodayTask";
+
 export default {
   name: "TodayMain",
-  components:{
+  components: {
     TodayTask
   },
 
-  data(){
-    return{
+  data() {
+    return {
       tasks: [
         {
           time: "起床",
@@ -21,22 +22,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: false
+              completed: false,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: true
+              completed: false,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: true,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: true
+              completed: true,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -46,22 +55,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: true
+              completed: false,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: false
+              completed: true,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: false,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: false
+              completed: true,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -71,22 +88,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: false
+              completed: false,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: false
+              completed: true,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: false,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: false
+              completed: true,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -96,22 +121,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: false
+              completed: false,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: false
+              completed: false,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: false,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: false
+              completed: true,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -121,22 +154,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: false
+              completed: true,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: false
+              completed: false,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: false,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: false
+              completed: true,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -146,22 +187,30 @@ export default {
             {
               iconName: "#icon-Washingmachine",
               taskDesc: "洗漱整理",
-              completed: false
+              completed: false,
+              completedBgc: "#CCFF99",
+              daysInARow: 1,
             },
             {
               iconName: "#icon-chizaocan",
               taskDesc: "记得早餐",
-              completed: false
+              completed: false,
+              completedBgc: "#FFCC33",
+              daysInARow: 2,
             },
             {
               iconName: "#icon-yingyu",
               taskDesc: "英语听力",
-              completed: false
+              completed: false,
+              completedBgc: "#CC6699",
+              daysInARow: 0,
             },
             {
               iconName: "#icon-signal",
               taskDesc: "模电数电",
-              completed: false
+              completed: false,
+              completedBgc: "#99CCFF",
+              daysInARow: 3,
             },
           ],
         },
@@ -173,7 +222,7 @@ export default {
 
 <style scoped lang="less">
 
-.main-container{
+.main-container {
   padding-top: 49px;
   height: calc(100vh - 10vh - 36px);
   overflow: scroll;
