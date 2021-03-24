@@ -2,21 +2,24 @@
   <div id="habit-task-container" :style="{backgroundColor:task.completedBgc}">
     <div class="left">
       <icon-font :name="task.iconName" fs="50px" class="task-icon"></icon-font>
-      <div class="task-desc">{{task.taskDesc}}</div>
+      <div class="task-desc">{{ task.taskDesc }}</div>
     </div>
     <div class="right">
-      <div class="day">{{task.daysInARow}}天</div>
+      <div class="day">{{ task.daysInARow }}天</div>
       <div class="persist">坚持天数</div>
     </div>
+
+
   </div>
 </template>
 
 <script>
 import IconFont from "@/components/common/iconfont/IconFont";
+
 export default {
   name: "HabitTask",
 
-  components:{
+  components: {
     IconFont
   },
 
@@ -32,13 +35,16 @@ export default {
           daysInARow: 1,
         }
       }
-    }
-  }
+    },
+  },
+
+
+  methods: {}
 }
 </script>
 
 <style scoped lang="less">
-#habit-task-container{
+#habit-task-container {
 
   width: 98%;
   height: 80px;
@@ -49,34 +55,37 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: all 1s ease-in-out;
 
-  .left{
+  .left {
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 
-    .task-desc{
+    .task-desc {
       font-weight: bold;
       font-size: 18px;
       margin-left: 6px;
     }
   }
 
-  .right{
+  .right {
 
-    .day{
+    .day {
       font-weight: bolder;
       font-size: 24px;
       text-align: right;
       margin-bottom: 4px;
     }
 
-    .persist{
+    .persist {
       font-size: 14px;
       // 调整字间距
       letter-spacing: 1px;
     }
   }
+
+
 }
 </style>
