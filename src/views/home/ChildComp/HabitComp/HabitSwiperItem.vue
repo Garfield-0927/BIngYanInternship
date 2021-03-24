@@ -1,7 +1,7 @@
 <template>
   <div class="swiper-item-container">
-    <div class="task-item-wrapper" v-for="(item, index) in task" :key="index">
-      <habit-task :task="item"></habit-task>
+    <div class="task-item-wrapper" v-for="(item, index) in task" :key="index" >
+      <habit-task :task="item" @click.native="habitTaskClickHandler(index)"></habit-task>
     </div>
   </div>
 </template>
@@ -17,6 +17,23 @@ export default {
     task:{
       type:Array,
       required:true
+    },
+    timeIndex:{
+      type:Number,
+      required: true
+    }
+  },
+
+
+  mounted() {
+
+  },
+
+
+  methods:{
+    habitTaskClickHandler(index){
+      console.log(this.timeIndex)
+      console.log(index)
     }
   }
 }

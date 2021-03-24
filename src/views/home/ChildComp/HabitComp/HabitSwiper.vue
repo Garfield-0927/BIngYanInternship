@@ -8,7 +8,7 @@
 
     <div class="swiper-item-container">
       <div class="swiper-item-wrapper" v-for="(item, index) in tasks" :key="index">
-        <habit-swiper-item ref="swiperItem" class="swiper-item" :task="item"></habit-swiper-item>
+        <habit-swiper-item ref="swiperItem" class="swiper-item" :task="item" :time-index="index"></habit-swiper-item>
       </div>
     </div>
 
