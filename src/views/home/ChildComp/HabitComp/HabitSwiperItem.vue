@@ -58,7 +58,7 @@ export default {
 
     // 点击删除
     deleteHabit(index) {
-      let deleteEle = document.getElementsByClassName("delete-wrapper")[index];
+      let deleteEle = this.$refs.delete[index];
       if (deleteEle.classList.contains("delete-active")){
         console.log(this.timeIndex)
         console.log(index)
