@@ -7,7 +7,7 @@
       <div slot="center" class="centerItem">
         <div>习惯管理</div>
       </div>
-      <div slot="right" class="rightItem">
+      <div slot="right" class="rightItem" @click="goToAddHabit">
         +
       </div>
     </top-bar>
@@ -23,6 +23,13 @@ export default {
   components: {
     TopBar,
     IconFont
+  },
+
+
+  methods:{
+    goToAddHabit(){
+      this.$router.push("/habitAdd");
+    }
   }
 }
 </script>

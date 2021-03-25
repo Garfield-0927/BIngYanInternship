@@ -22,7 +22,7 @@ const routes = [
       },
       {
         path: "habit",
-        component: () => import('@/views/home/ChildComp/HomeHabit')
+        component: () => import('@/views/home/ChildComp/HomeHabit'),
       },
       {
         path: "more",
@@ -31,6 +31,10 @@ const routes = [
       ]
 
   },
+  {
+    path:"/habitAdd",
+    component: () => import('@/views/habitadd/HabitAdd'),
+  }
 
 ]
 

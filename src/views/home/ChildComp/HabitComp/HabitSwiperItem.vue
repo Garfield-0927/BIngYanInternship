@@ -49,6 +49,8 @@ export default {
 
 
   methods: {
+
+    // 显示出删除按钮
     habitTaskClickHandler(index) {
       let ele = this.$refs.taskItem[index].$el;
       ele.classList.toggle("goLeft")
@@ -60,8 +62,7 @@ export default {
     deleteHabit(index) {
       let deleteEle = this.$refs.delete[index];
       if (deleteEle.classList.contains("delete-active")){
-        console.log(this.timeIndex)
-        console.log(index)
+        console.log(this.$store.state.tasks[this.timeIndex].item[index])
       }
     }
 
