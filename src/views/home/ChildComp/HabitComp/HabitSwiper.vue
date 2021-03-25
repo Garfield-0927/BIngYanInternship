@@ -28,7 +28,7 @@ export default {
   props: {
     title: {
       type: Array,
-      default: () => ["全部", "起床", "晨间", "中午", "午间", "晚间"]
+      default: () => ["全部", "起床", "晨间", "中午", "午间", "晚间","睡前"]
     }
   },
 
@@ -50,7 +50,7 @@ export default {
 
     // 点击不同时间阴影变化 以及页面变化
     ChangeIndex(index) {
-      const unitLengthOfTitle = 50
+      const unitLengthOfTitle = 48
       let moveLengthOfTitle = unitLengthOfTitle * ( - index)
       this.$refs.shadow.style.transform = `translate(${-moveLengthOfTitle}px)`;
 
@@ -96,9 +96,9 @@ export default {
     position: relative;
 
     .title-item {
-      width: 50px;
+      width: 48px;
       height: 28px;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: bold;
       text-align: center;
       line-height: 28px;

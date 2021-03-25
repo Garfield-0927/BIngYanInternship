@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="swiper-item-container" v-for="(item, index) in task" :key="index">
+    <div class="swiper-item-container" v-for="(item, index) in task" :key="index" ref="swiperItemContainer">
       <div class="task-item-wrapper">
         <habit-task
             ref="taskItem"
@@ -62,7 +62,13 @@ export default {
     deleteHabit(index) {
       let deleteEle = this.$refs.delete[index];
       if (deleteEle.classList.contains("delete-active")){
-        console.log(this.$store.state.tasks[this.timeIndex].item[index])
+        try {
+          this.$store.commit("deleteHabit", [this.timeIndex, index])
+          this.$refs.swiperItemContainer[index].remove();
+          alert("delete success")
+        }catch (e){
+          console.log(e)
+        }
       }
     }
 

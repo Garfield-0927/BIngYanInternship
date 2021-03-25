@@ -219,9 +219,16 @@ const store = new Vuex.Store({
     appendHabit(state, payload){
       let timeIndex = state.tasks.findIndex(item=>item.time===payload[0]);
       state.tasks[timeIndex].item.push(payload[1]);
+    },
+
+    /**
+     *
+     * @param state
+     * @param payload  [Array] 第零个是时间索引 第一个是task索引
+     */
+    deleteHabit(state, payload){
+      state.tasks[payload[0]].item.splice(payload[1], 1);
     }
-
-
   }
 })
 
