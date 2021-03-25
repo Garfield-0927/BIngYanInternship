@@ -76,7 +76,7 @@ export default {
         alert("保存失败!");
       } else {
         this.$store.commit("appendHabit",[this.time, this.habit])
-        this.$router.go(-1);
+        this.$router.push("/home/today");
         alert("保存成功!");
       }
     }

@@ -53,7 +53,7 @@ export default {
 
     // 点击取消
     goBack(){
-      this.$router.go(-1);
+      this.$router.push("/home/today");
     }
   }
 }
