@@ -16,6 +16,12 @@ export default {
     return {
       habitName: ""
     }
+  },
+
+  watch:{
+    habitName:(newV)=>{
+      this.$emit("setHabitName", newV)
+    }
   }
 }
 </script>

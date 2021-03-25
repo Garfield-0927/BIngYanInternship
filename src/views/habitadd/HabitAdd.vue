@@ -1,8 +1,18 @@
 <template>
   <div id="habit-add-container">
-    <habit-add-top-bar/>
-    <habit-add-name/>
-    <habit-add-icon-and-color/>
+    <habit-add-top-bar
+
+    />
+    <habit-add-name
+        @setHabitName="setHabitName"
+    />
+    <habit-add-icon-and-color
+        @setIcon="setIcon"
+        @setColor="setColor"
+    />
+    <habit-clock-in-time
+        @setTime="setTime"
+    />
   </div>
 
 </template>
@@ -11,22 +21,65 @@
 import HabitAddTopBar from "@/views/habitadd/ChildComp/HabitAddTopBar";
 import HabitAddName from "@/views/habitadd/ChildComp/HabitAddName";
 import HabitAddIconAndColor from "@/views/habitadd/ChildComp/HabitAddIconAndColor";
+import HabitClockInTime from "@/views/habitadd/ChildComp/HabitClockInTime";
+
 export default {
-name: "HabitAdd",
-  components:{
+  name: "HabitAdd",
+  components: {
     HabitAddTopBar,
     HabitAddName,
-    HabitAddIconAndColor
+    HabitAddIconAndColor,
+    HabitClockInTime
+  },
+
+
+  data() {
+    return {
+      habit:{
+        iconName: "",
+        taskDesc: "",
+        completed: false,
+        completedBgc: "",
+        daysInARow: 0,
+      },
+
+    }
+  },
+
+  methods: {
+
+    // 获取习惯名字
+    setHabitName(name) {
+      this.habit.taskDesc = name;
+    },
+
+    // 获取习惯图标
+    setIcon(icon) {
+      this.habit.iconName = icon
+    },
+
+    // 获取习惯背景颜色
+    setColor(color) {
+      this.habit.completedBgc = color
+    },
+
+    // 获取习惯时间
+    setTime(time) {
+      console.log(time);
+    }
+
   }
 }
 </script>
 
 <style scoped lang="less">
-#habit-add-container{
+#habit-add-container {
   height: calc(100vh - 49px);
   width: 100vw;
   margin-top: 49px;
   padding: 20px 1em 0;
   box-sizing: border-box;
 }
+
+
 </style>

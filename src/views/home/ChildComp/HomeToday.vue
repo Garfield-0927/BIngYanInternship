@@ -1,6 +1,5 @@
 <template>
   <div class="today-container">
-
     <top-bar>
       <div slot="left" class="leftItem">
         <icon-font name="#icon-CSS" fs="30px"></icon-font>
@@ -13,17 +12,13 @@
         +
       </div>
     </top-bar>
-
     <today-slide-down
       ref="slideDown"
       @changeDate="changeDate"
       @closeSlideDown="closeSlideDown"
     />
-
     <today-main/>
-
     <today-clock-in/>
-
   </div>
 </template>
 

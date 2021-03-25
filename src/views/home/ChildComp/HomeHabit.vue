@@ -1,13 +1,9 @@
 <template>
   <div class="habit-container">
     <habit-top-bar/>
-
     <div class="main">
       <habit-swiper/>
     </div>
-
-
-
   </div>
 </template>
 
