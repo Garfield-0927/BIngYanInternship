@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <today-task :tasks="tasks"></today-task>
+    <today-task :tasks="this.$store.state.tasks"></today-task>
   </div>
 </template>
 
@@ -264,7 +264,7 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 0px;
+  width: 0;
 }
 
 </style>

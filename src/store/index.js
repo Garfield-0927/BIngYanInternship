@@ -210,6 +210,18 @@ const store = new Vuex.Store({
 
   },
   mutations: {
+
+    /**
+     *
+     * @param state
+     * @param payload [Array] 第零个是时间 第一个是habit
+     */
+    appendHabit(state, payload){
+      let timeIndex = state.tasks.findIndex(item=>item.time===payload[0]);
+      state.tasks[timeIndex].item.push(payload[1]);
+    }
+
+
   }
 })
 

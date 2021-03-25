@@ -19,7 +19,7 @@ export default {
   },
 
   watch:{
-    habitName:(newV)=>{
+    habitName:function(newV){
       this.$emit("setHabitName", newV)
     }
   }

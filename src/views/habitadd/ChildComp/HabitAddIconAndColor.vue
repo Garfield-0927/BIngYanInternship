@@ -71,41 +71,39 @@ export default {
     }
   },
 
-  watch: {
-    currentIconName: (newV) => {
-      this.$emit("setIcon", newV)
-    },
-    currentColorData: (newV) => {
-      this.$emit("setColor", newV)
-    }
-  },
-
   methods: {
+    // 选择图标
     selectIcon(index) {
       let iconEle = this.$refs.icon;
       if (this.currentIcon === -1) {
         this.currentIcon = index;
         iconEle[index].$el.classList.add("icon-active");
         this.currentIconName = this.iconNames[this.currentIcon]
+        this.$emit("setIcon", this.currentIconName)
       } else {
         iconEle[this.currentIcon].$el.classList.remove("icon-active");
         iconEle[index].$el.classList.add("icon-active");
         this.currentIcon = index;
         this.currentIconName = this.iconNames[this.currentIcon]
+        this.$emit("setIcon", this.currentIconName)
       }
     },
 
+    // 选择颜色
     selectColor(index) {
       let colorEle = this.$refs.color;
       if (this.currentColor === -1) {
         this.currentColor = index;
         colorEle[index].classList.add("color-active");
         this.currentColorData = this.colors[this.currentColor]
+        this.$emit("setColor", this.currentColorData)
       } else {
         colorEle[this.currentColor].classList.remove("color-active");
         colorEle[index].classList.add("color-active");
         this.currentColor = index;
         this.currentColorData = this.colors[this.currentColor]
+        this.$emit("setColor", this.currentColorData)
+
       }
     }
   }
@@ -146,7 +144,7 @@ export default {
   .icon-wrapper {
     margin-top: 10px;
     width: 100%;
-    height: 248px;
+    //height: 248px;
     overflow-x: scroll;
 
     .icon-subwrapper {
@@ -173,7 +171,7 @@ export default {
   .color-wrapper {
     margin-top: 40px;
     width: 100%;
-    height: 188px;
+    //height: 188px;
     overflow-x: scroll;
 
     .color-subwrapper {

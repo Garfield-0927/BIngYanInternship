@@ -1,17 +1,17 @@
 <template>
   <div id="habit-add-container">
     <habit-add-top-bar
-
+      @saveHabit="saveHabit"
     />
     <habit-add-name
-        @setHabitName="setHabitName"
+      @setHabitName="setHabitName"
     />
     <habit-add-icon-and-color
-        @setIcon="setIcon"
-        @setColor="setColor"
+      @setIcon="setIcon"
+      @setColor="setColor"
     />
     <habit-clock-in-time
-        @setTime="setTime"
+      @setTime="setTime"
     />
   </div>
 
@@ -42,7 +42,7 @@ export default {
         completedBgc: "",
         daysInARow: 0,
       },
-
+      time: ""
     }
   },
 
@@ -65,9 +65,21 @@ export default {
 
     // 获取习惯时间
     setTime(time) {
-      console.log(time);
-    }
+      this.time = time;
+    },
 
+
+    // 保存
+    saveHabit(){
+      console.log('11')
+      if (!this.time||!this.habit.completedBgc||!this.habit.iconName||!this.habit.taskDesc){
+        alert("保存失败!");
+      } else {
+        this.$store.commit("appendHabit",[this.time, this.habit])
+        this.$router.go(-1);
+        alert("保存成功!");
+      }
+    }
   }
 }
 </script>

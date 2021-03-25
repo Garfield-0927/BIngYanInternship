@@ -8,6 +8,7 @@
             border-radius="30px"
             bgc="#F6F7F2"
             style="box-shadow: none;font-size: 16px; font-weight: normal"
+            @click.native="goBack"
         >取消
         </my-button>
       </div>
@@ -23,6 +24,7 @@
             border-radius="30px"
             bgc="#F6F7F2"
             style="box-shadow: none;font-size: 16px; font-weight: normal"
+            @click.native="saveHabit"
         >保存
         </my-button>
       </div>
@@ -40,6 +42,19 @@ export default {
   components: {
     TopBar,
     MyButton
+  },
+
+  methods:{
+
+    // 点击保存
+    saveHabit(){
+      this.$emit("saveHabit")
+    },
+
+    // 点击取消
+    goBack(){
+      this.$router.go(-1);
+    }
   }
 }
 </script>
