@@ -40,6 +40,10 @@ const routes = [
   {
     path:"/habitAdd",
     component: () => import('@/views/habitadd/HabitAdd'),
+  },
+  {
+    path:"/clockInRecord",
+    component: () => import('@/views/clockinrecord/ClockInRecord'),
   }
 
 ]
