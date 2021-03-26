@@ -28,7 +28,7 @@ export default {
   props: {
     title: {
       type: Array,
-      default: () => ["全部", "起床", "晨间", "中午", "午间", "晚间","睡前"]
+      default: () => ["起床", "晨间", "中午", "午间", "晚间","睡前"]
     }
   },
 
@@ -68,14 +68,6 @@ export default {
     // 获取store中数据并整合。
     GetTasks(){
       this.tasks = this.$store.state.tasks.map(item=> item.item)
-      // 用来存放所有tasks
-      let allTask = [];
-      for (let i of this.tasks){
-        allTask.push(...i);
-      }
-      // 把一天的task放入
-      this.tasks.unshift(allTask);
-
     }
 
   }

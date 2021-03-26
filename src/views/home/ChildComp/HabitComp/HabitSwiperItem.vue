@@ -61,12 +61,12 @@ export default {
     // 点击删除
     deleteHabit(index) {
       let deleteEle = this.$refs.delete[index];
-      if (deleteEle.classList.contains("delete-active")){
+      if (deleteEle.classList.contains("delete-active")) {
         try {
           this.$store.commit("deleteHabit", [this.timeIndex, index])
           this.$refs.swiperItemContainer[index].remove();
           alert("delete success")
-        }catch (e){
+        } catch (e) {
           console.log(e)
         }
       }
@@ -80,10 +80,10 @@ export default {
 .swiper-item-container {
   position: relative;
 
-  .swiper-item-wrapper{
+  .swiper-item-wrapper {
 
 
-    .goLeft{
+    .goLeft {
       transform: translateX(-30%);
     }
   }
@@ -97,12 +97,13 @@ export default {
     width: 50px;
     opacity: 0;
     transition: all 1s ease-in-out;
+
     .delete-text {
       text-align: center;
     }
   }
 
-  .delete-active{
+  .delete-active {
     opacity: 1;
   }
 }
