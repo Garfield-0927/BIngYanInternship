@@ -55,17 +55,15 @@ export default {
 
     // click the login btn
     LoginHandler(){
-      // TODO
-      // need api request
-      //
       (async ()=>{
         const res = await userLogin(this.phone, this.password)
         console.log(res)
-        await this.$router.push("home/today");
+        if (res.data.code === "200"){
+          await this.$router.push("home/today");
+        } else {
+          alert("Login Fail!")
+        }
       })();
-
-
-
     }
 
 

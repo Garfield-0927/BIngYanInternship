@@ -22,7 +22,15 @@ export default {
     (async ()=>{
       const res = await checkLogin();
       console.log(res)
+      if (!res.data.isLogin){
+        await this.$router.push("/");
+      }
     })();
+  },
+
+
+  methods:{
+
   }
 }
 </script>

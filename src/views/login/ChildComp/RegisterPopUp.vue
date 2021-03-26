@@ -32,6 +32,8 @@
 
 <script>
 import MyButton from "@/components/common/button/MyButton";
+import {userRegister} from "@/network/user";
+
 export default {
   name: "RegisterPopUp",
   components:{
@@ -54,9 +56,17 @@ export default {
 
     // click the login btn
     RegisterHandler(){
-      // TODO
-      // need api request
-
+      const regPh = /^1\d{10}$/
+      if(regPh.test(this.phone) && this.password){
+        (async ()=>{
+          const res = await userRegister(this.phone, this.password);
+          if (res.data.code === "200"){
+            alert("Register Success!")
+          }
+        })()
+      } else {
+        alert("请正确输入手机号于密码!");
+      }
     }
 
   }

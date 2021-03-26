@@ -10,6 +10,7 @@
 import MyCalendar from "@/components/common/calendar/MyCalendar";
 import ClockInTopBar from "@/views/clockinrecord/ChildComp/ClockInTopBar";
 import MyTimeLine from "@/components/common/timeline/MyTimeLine";
+import {checkLogin} from "@/network/user";
 export default {
   name: "ClockInRecord",
   components:{
@@ -22,6 +23,16 @@ export default {
     return{
         date:"",
     }
+  },
+
+  mounted() {
+    (async ()=>{
+      const res = await checkLogin();
+      console.log(res)
+      if (!res.data.isLogin){
+        await this.$router.push("/");
+      }
+    })();
   },
 
   methods:{

@@ -22,6 +22,7 @@ import HabitAddTopBar from "@/views/habitadd/ChildComp/HabitAddTopBar";
 import HabitAddName from "@/views/habitadd/ChildComp/HabitAddName";
 import HabitAddIconAndColor from "@/views/habitadd/ChildComp/HabitAddIconAndColor";
 import HabitClockInTime from "@/views/habitadd/ChildComp/HabitClockInTime";
+import {checkLogin} from "@/network/user";
 
 export default {
   name: "HabitAdd",
@@ -44,6 +45,15 @@ export default {
       },
       time: ""
     }
+  },
+
+  mounted() {
+    (async ()=>{
+      const res = await checkLogin();
+      if (!res.data.isLogin){
+        await this.$router.push("/");
+      }
+    })();
   },
 
   methods: {
