@@ -64,7 +64,7 @@ export default {
       if (deleteEle.classList.contains("delete-active")) {
         try {
           this.$store.commit("deleteHabit", [this.timeIndex, index])
-          this.$refs.swiperItemContainer[index].remove();
+          this.habitTaskClickHandler(index)
           alert("delete success")
         } catch (e) {
           console.log(e)

@@ -229,6 +229,12 @@ const store = new Vuex.Store({
     deleteHabit(state, payload){
       state.tasks[payload[0]].item.splice(payload[1], 1);
     }
+  },
+
+
+
+  actions: {
+
   }
 })
 

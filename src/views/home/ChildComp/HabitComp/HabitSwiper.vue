@@ -35,14 +35,13 @@ export default {
   data() {
     return {
       currentIndex: 0,
-      tasks:[],
+      tasks: this.$store.state.tasks.map(item=> item.item),
     }
   },
 
   mounted() {
 
 
-    this.GetTasks();
 
   },
 
@@ -63,12 +62,6 @@ export default {
       this.currentIndex = index;
     },
 
-
-
-    // 获取store中数据并整合。
-    GetTasks(){
-      this.tasks = this.$store.state.tasks.map(item=> item.item)
-    }
 
   }
 
