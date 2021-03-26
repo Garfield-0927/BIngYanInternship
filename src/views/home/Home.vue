@@ -10,13 +10,19 @@
 
 <script>
 import HomeBottomBar from "@/views/home/ChildComp/HomeBottomBar";
+import {checkLogin} from "@/network/user";
+
 export default {
   name: "Home",
   components:{
     HomeBottomBar,
   },
 
-  created() {
+  mounted() {
+    (async ()=>{
+      const res = await checkLogin();
+      console.log(res)
+    })();
   }
 }
 </script>

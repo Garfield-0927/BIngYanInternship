@@ -130,3 +130,9 @@
 - 晚上把时间线做完了。
 
 - 终于准备开始搞后台了。。。
+
+- 这express给我搞吐了
+
+- 记录几个坑
+  - express配置cors跨域的时候，前端的baseUrl一定要写全。eg：“http：//localhost：8082/api/”，没写全再怎么配置cors也会出现跨域问题！！
+  - 在用axios的时候，要携带cookie一定要设置withCredentials为true，不然后端的cookie session会丢失！而且后端配置跨域的时候，Access-Control-Allow-Origin不能写通配，不然还是会产生跨域问题。

@@ -31,6 +31,8 @@
 
 <script>
 import MyButton from "@/components/common/button/MyButton";
+import {userLogin} from "@/network/user";
+
 export default {
   name: "LoginPop",
   components:{
@@ -55,7 +57,15 @@ export default {
     LoginHandler(){
       // TODO
       // need api request
-      this.$router.push("home/today")
+      //
+      (async ()=>{
+        const res = await userLogin(this.phone, this.password)
+        console.log(res)
+        await this.$router.push("home/today");
+      })();
+
+
+
     }
 
 
