@@ -56,7 +56,7 @@ export default {
 
 
   mounted() {
-
+    this.currentIndex = this.initialRouter()
   },
 
 
@@ -65,7 +65,17 @@ export default {
     // 改变视图
     ChangeView(index){
       this.currentIndex = index;
+    },
+
+
+    // router bug fix
+    initialRouter(){
+      let router = this.$route.path;
+      let section = router.split("/");
+      return this.barItems.findIndex(item=>item.url===section[2]);
     }
+
+
   },
 
 
