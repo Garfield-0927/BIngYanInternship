@@ -20,7 +20,7 @@ export default {
 
   data(){
     return{
-        date:"2021-3-26",
+        date:"",
     }
   },
 

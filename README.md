@@ -113,7 +113,7 @@
 
   ```javascript
   // 想删除所有class为dayItem的结点， 但是删除之后length会变化，i也在变，导致只删除了下表为双数的dom结点 ，一开始还以为是vue异步渲染dom结点的问题，用nextTick也没作用，debug了半天。。。     
-  // 解决方法：
+  // 解决方法：去掉i++
   let days = document.getElementsByClassName("dayItem");
     if (days){
       console.log(days)
@@ -127,4 +127,6 @@
 
 - 选中日期的时候我想给点击的元素加一个active的class，但是发现class是加上了，但是里面的样式却没有效果，想了半天没想到什么好的解决方法，于是把这里的css效果扔到了全局里面，然后生效了，这也是没有办法的办法。。。
 
-- 
+- 晚上把时间线做完了。
+
+- 终于准备开始搞后台了。。。
