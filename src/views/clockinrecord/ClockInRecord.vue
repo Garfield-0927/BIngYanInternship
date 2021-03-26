@@ -1,18 +1,38 @@
 <template>
   <div id="clock-in-record-container">
     <clock-in-top-bar/>
-    <my-calendar/>
+    <my-calendar @selectDate="selectDate"/>
+    <my-time-line :date="date"/>
   </div>
 </template>
 
 <script>
 import MyCalendar from "@/components/common/calendar/MyCalendar";
 import ClockInTopBar from "@/views/clockinrecord/ChildComp/ClockInTopBar";
+import MyTimeLine from "@/components/common/timeline/MyTimeLine";
 export default {
   name: "ClockInRecord",
   components:{
     ClockInTopBar,
-    MyCalendar
+    MyCalendar,
+    MyTimeLine
+  },
+
+  data(){
+    return{
+        date:"2021-3-26",
+    }
+  },
+
+  methods:{
+
+    /**
+     *
+     * @param arr 是一个日期数组，第零项年，一月，二日
+     */
+    selectDate(arr){
+      this.date = arr.join("-")
+    }
   }
 }
 </script>

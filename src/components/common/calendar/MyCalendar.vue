@@ -28,6 +28,7 @@ export default {
     return {
       year: new Date().getFullYear(),
       month: new Date().getMonth() + 1,
+      day: new Date().getDate(),
       width: "calc(100vw-2em)",
       height: "350px",
       borderRadius: "10px",
@@ -46,13 +47,26 @@ export default {
   },
 
   mounted() {
+
+    // 初始化日历
     this.fulfillDayEles(this.year, this.month + 1);
+
   },
 
   watch: {
+
+    // 监听年月的变化
     date: function (newV) {
       this.fulfillDayEles(newV.year, newV.month + 1);
     },
+
+    // 监听日的变化
+    day: function (newV, oldV) {
+      const dayEles = document.getElementsByClassName("dayItem");
+      dayEles[newV].classList.add('day-item-active');
+      dayEles[oldV].classList.remove('day-item-active');
+      this.$emit("selectDate", [this.year, this.month, this.day+1]);
+    }
   },
 
 
@@ -77,7 +91,6 @@ export default {
      * @param year
      * @param month
      */
-    // eslint-disable-next-line no-unused-vars
     fulfillDayEles(year, month) {
       let days = document.getElementsByClassName("dayItem");
       if (days) {
@@ -90,12 +103,14 @@ export default {
       for (let i = 1; i <= MAX_DAY; i++) {
         const ele = document.createElement("div")
         if (i === 1) {
-          ele.style.marginLeft = this.getMarginLeft(year, month-1).toString()+'px';
+          ele.style.marginLeft = this.getMarginLeft(year, month - 1).toString() + 'px';
         }
-        ele.style.cssText += "width: 14%;height: 40px;line-height: 40px;text-align: center";
         ele.classList.add("dayItem")
         ele.innerHTML = i + "";
         dayEle.appendChild(ele)
+        ele.addEventListener("click", () => {
+          this.day = parseInt(ele.innerHTML)-1;
+        })
       }
     },
 
@@ -138,7 +153,7 @@ export default {
 
     .left {
       flex: 1;
-
+      color: #b1b1b1;
     }
 
     .center {
@@ -148,6 +163,7 @@ export default {
 
     .right {
       flex: 1;
+      color: #b1b1b1;
     }
   }
 
@@ -168,6 +184,10 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+
   }
+
 }
+
+
 </style>
