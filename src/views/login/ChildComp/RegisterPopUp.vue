@@ -60,7 +60,7 @@ export default {
       if(regPh.test(this.phone) && this.password){
         (async ()=>{
           const res = await userRegister(this.phone, this.password);
-          if (res.data.code === "200"){
+          if (res.data.code === 200){
             alert("Register Success!")
           }
         })()

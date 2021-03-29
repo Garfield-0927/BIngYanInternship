@@ -55,7 +55,7 @@ export default {
 
     // 监听隐藏已完成事件的事件
     this.$bus.$on("cancelCompleted",()=>{
-      this.showCompleted = this.showCompleted===true ? false : true;
+      this.showCompleted = this.showCompleted !== true;
     })
 
 

@@ -21,6 +21,8 @@
 <script>
 import HabitTask from "@/views/home/ChildComp/HabitComp/HabitTask";
 import IconFont from "@/components/common/iconfont/IconFont";
+import {removeHabit} from "@/network/habit";
+import {getYYYY_MM_DD} from "@/utils";
 
 export default {
   name: "HabitSwiperItem",
@@ -59,14 +61,23 @@ export default {
     },
 
     // 点击删除
-    deleteHabit(index) {
+    async deleteHabit(index) {
       let deleteEle = this.$refs.delete[index];
       if (deleteEle.classList.contains("delete-active")) {
         try {
-          this.$store.commit("deleteHabit", [this.timeIndex, index])
-          this.habitTaskClickHandler(index)
-          alert("delete success")
+          // this.$store.commit("deleteHabit", [this.timeIndex, index])
+          const date = getYYYY_MM_DD();
+          const res = await removeHabit(date, this.$store.state.phone, this.timeIndex, index);
+          if (res.data.code === 200){
+            this.$bus.$emit("updateHabit");
+            this.task.splice(index,1)
+            this.habitTaskClickHandler(index)
+            alert("delete success")
+          } else{
+            alert("delete fail")
+          }
         } catch (e) {
+          alert("delete fail")
           console.log(e)
         }
       }

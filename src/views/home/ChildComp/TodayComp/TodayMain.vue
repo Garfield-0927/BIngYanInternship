@@ -44,10 +44,11 @@ export default {
 
   methods:{
     // find specific task according to time and taskDesc
-    findTask(task, time){
-      let timeIndex = this.tasks.findIndex(item => item.time === time);
-      let taskIndex = this.tasks[timeIndex].item.findIndex(item => item.taskDesc === task.taskDesc);
-      return this.tasks[timeIndex].item[taskIndex]
+    async findTask(task, time){
+      console.log(this.tasks)
+      let timeIndex = await this.$store.state.tasks.findIndex(item => item.time === time);
+      let taskIndex = await this.$store.state.tasks[timeIndex].item.findIndex(item => item.taskDesc === task.taskDesc);
+      return this.$store.state.tasks[timeIndex].item[taskIndex]
     }
   }
 

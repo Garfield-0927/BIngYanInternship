@@ -43,7 +43,7 @@ export default {
           btnEles[i].classList.add("btn-active")
         }
       }
-      this.$emit("setTime", this.time[index])
+      this.$emit("setTime", index)
     }
   }
 }
@@ -63,9 +63,11 @@ export default {
   .time-selection-wrapper{
     width: 100%;
     overflow-x: scroll;
+    margin-bottom: 20px;
     .time-selection{
       width: 140%;
       margin-top: 10px;
+      margin-bottom: 20px;
       height: 50px;
       display: flex;
       justify-content: space-between;

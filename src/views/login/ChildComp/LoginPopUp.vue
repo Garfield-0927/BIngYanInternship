@@ -57,8 +57,8 @@ export default {
     LoginHandler(){
       (async ()=>{
         const res = await userLogin(this.phone, this.password)
-        console.log(res)
-        if (res.data.code === "200"){
+        if (res.data.code === 200){
+          this.$store.commit('getPhone', res.data.userInfo.phone)
           await this.$router.push("home/today");
         } else {
           alert("Login Fail!")

@@ -23,6 +23,8 @@ import HabitAddName from "@/views/habitadd/ChildComp/HabitAddName";
 import HabitAddIconAndColor from "@/views/habitadd/ChildComp/HabitAddIconAndColor";
 import HabitClockInTime from "@/views/habitadd/ChildComp/HabitClockInTime";
 import {checkLogin} from "@/network/user";
+import {addHabit} from "@/network/habit";
+import {getYYYY_MM_DD} from "@/utils";
 
 export default {
   name: "HabitAdd",
@@ -47,13 +49,21 @@ export default {
     }
   },
 
-  mounted() {
+  created() {
+
+    // 检查是否登录
     (async ()=>{
       const res = await checkLogin();
       if (!res.data.isLogin){
         await this.$router.push("/");
+        return;
       }
+      this.$store.commit('getPhone', res.data.phone)
     })();
+  },
+
+  mounted() {
+
   },
 
   methods: {
@@ -80,14 +90,19 @@ export default {
 
 
     // 保存
-    saveHabit(){
-      console.log('11')
-      if (!this.time||!this.habit.completedBgc||!this.habit.iconName||!this.habit.taskDesc){
+    async saveHabit(){
+      if (this.time==null||!this.habit.completedBgc||!this.habit.iconName||!this.habit.taskDesc){
         alert("保存失败!");
       } else {
-        this.$store.commit("appendHabit",[this.time, this.habit])
-        this.$router.push("/home/today");
-        alert("保存成功!");
+        const date = getYYYY_MM_DD();
+        let res = await addHabit(date, this.$store.state.phone, this.habit, this.time)
+        if (res.data.code === 200){
+          this.$bus.$emit('updateHabit');
+          alert("保存成功!");
+          await this.$router.push("/home/today");
+        } else {
+          alert("保存失败!");
+        }
       }
     }
   }
